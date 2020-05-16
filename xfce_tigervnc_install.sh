@@ -10,11 +10,11 @@ yum -y groupinstall "Xfce"
 dnf -y install tigervnc-server vim
 vncserver
 vncserver -kill :1
-mv ~/.vnc/startup ~/.vnc/startup_old
+mv ~/.vnc/xstartup ~/.vnc/xstartup_old
 echo "#!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
-exec startxfce4" > ~/.vnc/startup
+exec startxfce4" > ~/.vnc/xstartup
 
 # create systemd file
 echo "[Unit]
