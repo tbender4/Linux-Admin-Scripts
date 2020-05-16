@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if (( $EUID != 0 )); then
+	echo "Please run as root or with sudo."
+	exit
+fi
+
 yum -y install epel-release
 yum -y groupinstall "Xfce"
 dnf -y install tigervnc-server vim
